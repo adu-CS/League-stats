@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+Edit Player
+{% endblock %}
+{% block content %}
+        <h1>Edit Player Record</h1>
+        {% for row in rows %}
+        <form action="{{ url_for('editrec') }}" method="POST">
+            <h3 style="color:blue">Player ID: {{ row['rowid']}}</h3>
+            <input type="hidden" name="rowid" value="{{ row['rowid'] }}">
+            Name<br>
+            <input type="text" name="name" value="{{ row['name'] }}"/><br>
+
+            Runs<br>
+            <input type="text" name="runs" value="{{ row['runs'] }}"/><br>
+
+            Average<br>
+            <input type="text" name="avg" value="{{ row['avg'] }}"/><br>
+
+            Strike Rate<br>
+            <input type="text" name="sr" value="{{ row['sr'] }}"/><br>
+
+            Teams<br>
+            <input type="text" name="team" value="{{row['team'] }}"/><br>
+
+            <input type="submit" value="Submit" /><br>
+        </form>
+        {% endfor %}
+{% endblock %}
