@@ -17,6 +17,14 @@ def enternew():
 def Teams():
     return render_template("teams.html")
 
+@app.route("/tnmt")
+def tnmt():
+    return render_template("tnmt.html")
+
+@app.route("/tournament1")
+def tournament1():
+    return render_template("all_tourney.html")
+
 # Route to add a new record (INSERT) player data to the database
 @app.route("/addrec", methods=['POST'])
 def addrec():
@@ -112,3 +120,6 @@ def delete():
         finally:
             con.close()
             return render_template('result.html', msg=msg)
+
+if __name__ == "__main__":
+    app.run(debug=True)

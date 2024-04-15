@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}
+Tournaments
+{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('enternew') }}" class="navbar-item">Add New Player</a>
+<a href="{{ url_for('Teams')}}" class="navbar-item">Teams</a>   
+<a href="{{ url_for('list') }}" class="navbar-item">Review and Edit Player</a> 
+{% endblock %}

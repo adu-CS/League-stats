@@ -42,4 +42,16 @@ if not table_exists:
 else:
     print("Table 'Teams' already exists.")
 
+cursor.execute('''
+    SELECT name FROM sqlite_master WHERE type='table' AND name='Tournament';
+''')
+table_exists=cursor.fetchone()
+
+if not table_exists:
+    conn.execute('''
+        CREATE TABLE Tournament
+                 ty_id iINTEGER,
+                 
+''')
+
 conn.close()

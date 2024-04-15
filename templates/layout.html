@@ -9,9 +9,7 @@
     <body>
         <div class="navbar">
             <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
-            <a href="{{ url_for('enternew') }}" class="navbar-item">Add New Player</a>
-            <a href="{{ url_for('Teams')}}" class="navbar-item">Teams</a>   
-            <a href="{{ url_for('list') }}" class="navbar-item">Review and Edit Player</a> 
+            <a href="{{ url_for('tnmt')}}" class="navbar-item">Tournaments</a>
         </div>
 
 
@@ -20,7 +18,7 @@
             {% endblock %}
             <hr/>
             <footer>
-                <p><img src="{{ url_for('static', filename='logo.png')}}" width="35" height="20">&copy; 2023</p>
+                <p><img src="{{ url_for('static', filename='logo.png')}}" width="35" height="30"> &copy; 2024</p>
             </footer>
         </div>
 
