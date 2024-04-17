@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}
+Tournaments
+{% endblock %}
+
+{% block content %}
+
+<form action="{{url_for('newrectnmt') }}" method='POST'>
+        <label for="tournament_name">Tournament Name:</label><br>
+        <input type="text" id="tournament_name" name="tournament_name" required><br><br>
+        
+        <label for="tournament_id">Tournament ID:</label><br>
+        <input type="number" id="tournament_id" name="tournament_id" required><br><br>
+        
+        <label for="year">Year:</label><br>
+        <input type="number" id="year" name="year" required><br><br>
+        
+        <label for="location">Location:</label><br>
+        <input type="text" id="location" name="location" required><br><br>
+        
+        <label for="organizer_name">Organizer Name:</label><br>
+        <input type="text" id="organizer_name" name="organizer_name" required><br><br>
+        
+        <label for="organizer_id">Organizer ID:</label><br>
+        <input type="number" id="organizer_id" name="organizer_id" required><br><br>
+        
+        <label for="contact_email">Contact Email:</label><br>
+        <input type="email" id="contact_email" name="contact_email" required><br><br>
+        
+        <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
