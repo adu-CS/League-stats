@@ -25,6 +25,45 @@ def tnmt():
 def tournament1():
     return render_template("all_tourney.html")
 
+#create tournament
+@app.route("/crt_tnmt")
+def crt_tnmt():
+    return render_template("create_tnmt.html")
+
+@app.route('/newrectnmt', methods=['POST'])
+def newrectnmt():
+    if request.method == 'POST':
+        try:
+            # Extract form data
+            tournament_name = request.form['tournament_name']
+            tournament_id = request.form['tournament_id']
+            year = request.form['year']
+            location = request.form['location']
+            organizer_name = request.form['organizer_name']
+            organizer_id = request.form['organizer_id']
+            contact_email = request.form['contact_email']
+
+            # Connect to SQLite database
+            conn = sqlite3.connect('database.sqlite')
+            if conn is not None:
+                # Insert data into 'Tournaments' table
+                with conn:
+                    cursor = conn.cursor()
+                    cursor.execute("INSERT INTO Tournaments (tournament_id, tournament_name, year, location, organizer_id, organizer_name, contact_email) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                                   (tournament_id, tournament_name, year, location, organizer_id, organizer_name, contact_email))
+                print("Data inserted successfully")
+            else:
+                print("Connection to SQLite database failed")
+
+            # Return a response indicating success
+            return "Tournament created successfully"
+        except Exception as e:
+            print(f"Error inserting data into SQLite database: {e}")
+            return "An error occurred while creating the tournament"
+
+              
+
+
 # Route to add a new record (INSERT) player data to the database
 @app.route("/addrec", methods=['POST'])
 def addrec():
